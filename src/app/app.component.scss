@@ -1,0 +1,87 @@
+/* Add application styles & imports to this file! */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+// Utility class to visually hide elements but keep them accessible
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa; /* Light grey background */
+}
+
+.bookmark-tile {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: none; // Remove default card border
+  background-color: #fff;
+  min-height: 120px; // Add minimum height for better proportion
+  position: relative; // Needed for absolute positioning of the delete button
+  display: flex; // Use flexbox for layout
+  flex-direction: column; // Stack elements vertically
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important; // Softer shadow on hover
+  }
+
+  .card-img-top {
+    border-bottom: 1px solid #dee2e6; // Subtle separator
+    flex-shrink: 0; // Prevent image area from shrinking
+  }
+
+  .card-body {
+    flex-grow: 1; // Allow body to grow and fill space
+    display: flex; // Use flex for alignment within body
+    align-items: center; // Vertically center text
+    padding: 0.75rem; // Adjust padding if needed
+  }
+
+  .card-title {
+    font-weight: 500;
+    color: #343a40;
+    word-break: break-word; // Allow long words to break
+    white-space: nowrap; // Prevent text wrapping
+    overflow: hidden; // Hide overflowing text
+    text-overflow: ellipsis; // Show ellipsis for overflow
+  }
+
+  .bookmark-delete-btn {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    z-index: 10; // Ensure it's above other content
+    opacity: 0; // Hidden by default
+    transition: opacity 0.2s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.7); // Slight background for visibility
+    padding: 0.2rem 0.4rem; // Adjust padding
+    border-radius: 50%; // Make it circular
+  }
+
+  &:hover .bookmark-delete-btn {
+    opacity: 1;
+  }
+}
+
+.group-title {
+  color: #495057;
+  font-weight: 600;
+}
+
+header.navbar {
+  margin-bottom: 2rem !important;
+}
+
+.form-check-label.small {
+    white-space: nowrap; // Prevent label wrapping
+}
+
+footer {
+    padding: 1.5rem 0;
+    border-top: 1px solid #e9ecef;
+}
